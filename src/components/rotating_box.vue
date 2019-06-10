@@ -1,5 +1,5 @@
 <template>
-    <div ref="box_anim" class="box_anim" ><div ref="box" class=box :style="style"></div></div>
+    <div ref="box_anim" class="box_anim anim-container" ><div ref="box" class=box :style="style"></div></div>
 </template>
 
 <script> 

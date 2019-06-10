@@ -1,6 +1,6 @@
 <template>
     <div class="background" :style="style">
-        
+        <slot></slot>
     </div>
 </template>
 <script>
@@ -13,7 +13,6 @@ export default {
   computed: {
       style() {
           let src = require("../assets/background/" + this.image);
-          console.log(src);
           return "background-image: url(" + src + ")";
       }
   }
