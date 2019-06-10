@@ -5,14 +5,13 @@
                 <ball acid="ball"/>
                 <mover acid="capital-move" x="100" y="100">
                     <spin speed="0" acid="capital-spin">
-                        <heading :x="x1c" :y="y1c" size="1" acid="capital-heading">Капитал</heading>
+                        <heading :x="x1c" :y="y1c" size="1" acid="capital-heading">Ах у ели, ах у ёлки, ах у ели злые волки</heading>
                     </spin>
                 </mover>
                 <mover>test</mover>
-                <heading x="100" y="200" size="2" >Том 1. Серия 1.</heading>
-                <heading x="100" y="300" size="3" >Глава: Товар</heading>
-                <heading x="100" y="400" size="4" >Природа стоимости</heading>
-                <heading x="100" y="500" size="5" >Товарный фетишизм</heading>
+                <heading x="100" y="200" size="2" >Еду я по выбоине, из выбоины не выеду я</heading>
+                <heading x="100" y="300" size="3" >Улыбок тебе дед мокар!</heading>
+                <heading x="100" y="400" size="4" >Ох, у ямы холм с кулями, Выйду на холм - куль поправлю.</heading>
                 <div class="box-container" ref=box1 >
                     <box id="redbox-1" size="200" color="blue" speed="3"/>
                 </div>
