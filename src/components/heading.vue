@@ -17,18 +17,11 @@ export default {
   props: {
       size: {
           default: "1"
-      },
-      x: {
-          default: 0
-      },
-      y: {
-          default: 0
       }
   },
   components: {},
   mounted() {
-      const heading = this.$refs.heading;
-      TweenMax.set(heading, {x: this.x, y: this.y});
+      
   } 
 }
 </script>

@@ -8,8 +8,7 @@ export default {
   mounted() { 
     const mover = this.$refs.mover;
     const timeline = new TimelineLite();
-    
-    timeline.to(mover, 1, {x: this.x, y: this.y });
+    timeline.to(mover, 0, {x: this.x, y: this.y });
   },
   props: {
       x:{'default':0},

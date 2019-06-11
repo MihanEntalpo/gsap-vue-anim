@@ -8,7 +8,7 @@ export default {
   mounted() { 
     const spinner = this.$refs.spinner;
     const timeline = new TimelineLite();
-    
+    timeline.set(spinner, {transformOrigin:"50% 50%"});
     timeline.to(spinner, 1 / this.speed, {rotation: "+=360", ease:Linear.easeNone, repeat: -1 });
   },
   props: {
