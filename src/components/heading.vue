@@ -10,7 +10,7 @@
 </template>
 <script>
     
-import { Linear, TweenMax } from 'gsap'
+import {  } from 'gsap'
     
 export default {
   name: 'heading',
@@ -28,6 +28,6 @@ export default {
 <style scoped>
     .heading
     {
-        position:absolute;
+        
     }
 </style>

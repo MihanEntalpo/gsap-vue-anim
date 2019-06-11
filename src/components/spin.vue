@@ -22,6 +22,6 @@ export default {
 
 <style scoped>
     .spinner {
-        position:absolute;
+        
     }
 </style>

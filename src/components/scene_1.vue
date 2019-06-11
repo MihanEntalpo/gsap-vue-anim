@@ -2,13 +2,15 @@
     <div class="animation">
         <background>
             <div class="anim-container">
-                <ball acid="ball"/>
-                <mover acid="capital-move" x="300" y="300">
-                    <spin speed="0.5" acid="capital-spin">
-                        <heading :x="x1c" :y="y1c" size="1" acid="capital-heading">Ах у ели, ах у ёлки, ах у ели злые волки</heading>
+                <mover acid="ball-mover">
+                    <ball acid="ball"/>
+                </mover>
+                <mover acid="capital-move" x="200" y="500">
+                    <spin speed="0.02" acid="capital-spin">
+                        <heading  size="1" acid="capital-heading">Ах у ели, ах у ёлки, ах у ели злые волки</heading>
                     </spin>
                 </mover>
-                <mover>test</mover>
+                <mover :x="test.x1" :y="test.y1" acid="test-mover"><heading size=1 acid="test-heading">test</heading></mover>
                 <heading  size="2" >Еду я по выбоине, из выбоины не выеду я</heading>
                 <heading  size="3" >Улыбок тебе дед мокар!</heading>
                 <heading  size="4" >Ох, у ямы холм с кулями, Выйду на холм - куль поправлю.</heading>
@@ -33,17 +35,19 @@ import { Linear, TweenMax } from 'gsap'
     
 export default {
   name: 'scene_1',
-  data: function() { return {  
-      x1: -100,
-      y1: 100
-  }; },
+  data: function() { 
+    return {  
+        
+        test: {
+            x1: 200,
+            y1: 200
+        }
+    }; 
+  },
+  props: {      
+  },
   computed: {
-      x1c: function(){
-          return this.$data.x1;
-      },
-      y1c: function(){
-          return this.$data.y1;
-      }
+     
   },
   components: {
       box, background, heading, spin, ball, mover
@@ -54,6 +58,10 @@ export default {
         var r = 150;
         var xc = parseInt(window.innerWidth / 2);
         var yc = parseInt(window.innerHeight / 2);
+        
+        
+        TweenMax.to(this.test, 5, {x1:500, y1:500, repeat: -1})
+        
         TweenMax.set(box1, {x: xc , y: yc - r});
         TweenMax.to(box1, 5, {bezier:{type:'thru', values:
                         [
@@ -64,7 +72,7 @@ export default {
                                   {x:xc, y:yc - r}
                         ]
                 }, ease:Linear.easeNone, repeat: -1 });
-        TweenMax.to(this.$data, 2, {x: 100});
+        
   } 
 }
 </script>
@@ -80,5 +88,10 @@ export default {
     }
     body{
         overflow: hidden;
+    }
+    [acid=test-heading]
+    {
+        color:orange;
+        text-shadow: 0px 2px 2px rgba(150, 150, 150, 1);
     }
 </style>
