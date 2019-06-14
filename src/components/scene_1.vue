@@ -4,8 +4,15 @@
             <div class="anim-container">
                 <layer acid="ball-layer">
                     <mover acid="ball-mover" x="100" y="100">
-                        <ball acid="ball"/>
+                        <ball acid="ball" ref='ball' id='red-ball'/>
                     </mover>
+                    <svg style="width:800px; height:600px;" id='motionPath'>
+                        <path 
+                            fill='transparent' 
+                            stroke='black'
+                            d="M 1 6 C 117 27 172 250 178 599 C 205 152 257 154 306 596 C 323 221 393 254 416 600 C 434 316 500 341 515 600 C 546 408 592 415 623 600 C 641 489 694 484 718 600" 
+                        />
+                    </svg>
                 </layer>
                 <layer acid="experiments-layer" opacity="0">
                     <mover acid="capital-move" x="200" y="500">
@@ -35,7 +42,8 @@ import spin from './spin.vue';
 import ball from './ball.vue';
 import mover from './mover.vue';
 import layer from './layer.vue';
-import { Linear, TweenMax } from 'gsap'
+import { Linear, TweenMax } from 'gsap';
+import { MorphSVGPlugin } from 'gsap/all';
     
 export default {
   name: 'scene_1',
@@ -79,10 +87,13 @@ export default {
                     }, ease:Linear.easeNone, repeat: -1 });
         }
         
-        TweenMax.to(this.test, 5, {x1:500, y1:500})
+        TweenMax.to(this.test, 5, {x1:500, y1:500});
+        
+        var motionPath = MorphSVGPlugin.pathDataToBezier("#motionPath");        
+        
+        TweenMax.to('#red-ball', 2, {bezier:{values:motionPath, type:"cubic"}});
         
        
-        
   } 
 }
 </script>
